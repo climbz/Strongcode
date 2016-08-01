@@ -57,7 +57,6 @@ public class AutoWarmupTimer extends AppCompatActivity {
                     | View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         }
     };
-    private View mControlsView;
     private final Runnable mShowPart2Runnable = new Runnable() {
         @Override
         public void run() {
@@ -66,7 +65,6 @@ public class AutoWarmupTimer extends AppCompatActivity {
             if (actionBar != null) {
                 actionBar.show();
             }
-            mControlsView.setVisibility(View.VISIBLE);
         }
     };
     private boolean mVisible;
@@ -91,22 +89,23 @@ public class AutoWarmupTimer extends AppCompatActivity {
         }
     };
 
-    //My code
-    TextView clockText;
-    long startTime = 0;
-    boolean alarm = false;
-    CountDownTimer countdown;
-    CountDownTimer countdownRest;
-    int numExercises = 6; //number of exercises (planks for example)
-    int holdTime = 60; //seconds
-    int restTime = 4; //seconds
-    boolean rest = true;
-    int round = 0; //0 of numExercises exercises left to do
-    String[] planks = {"plank","Right side plank","Left side plank","reverse plank","hollow hold","supermeng"};
 
+    //TODO: Deal with old timer code, consider usage instead of CountDownTimer
+    //long startTime = 0;
+    //boolean alarm = false;
+    private TextView clockText;
+    private CountDownTimer countdown;
+    private CountDownTimer countdownRest;
+    private int numExercises = 6; //number of exercises (planks for example)
+    private int holdTime = 60; //seconds
+    private int restTime = 4; //seconds
+    private boolean rest = true;
+    private int round = 0; //0 of numExercises exercises left to do
+    private String[] planks = {"plank","Right side plank","Left side plank","reverse plank","hollow hold","supermeng"};
 
+    //TODO: Deal with old timer code, consider usage instead of CountDownTimer
     //runs without a timer by reposting this handler at the end of the runnable
-    Handler timerHandler = new Handler();
+    /*Handler timerHandler = new Handler();
     Runnable timerRunnable = new Runnable() {
 
         @Override
@@ -123,7 +122,7 @@ public class AutoWarmupTimer extends AppCompatActivity {
             }
             timerHandler.postDelayed(this, 500);
         }
-    };
+    };*/
 
     private void playAlarm(){
         final MediaPlayer mpAlarm = MediaPlayer.create(this, R.raw.donnng);
@@ -142,13 +141,11 @@ public class AutoWarmupTimer extends AppCompatActivity {
         setContentView(R.layout.activity_auto_warmup_timer);
 
         mVisible = true;
-        mControlsView = findViewById(R.id.fullscreen_content_controls);
         mContentView = findViewById(R.id.fullscreen_text);
         clockText = (TextView)findViewById(R.id.fullscreen_text);
         clockText.setText("1:00" + "\n" + planks[round]); //TODO: don't hardcode the time
 
         createTimers();
-
 
         // Set up the user interaction to manually show or hide the system UI.
         mContentView.setOnClickListener(new View.OnClickListener() {
@@ -170,30 +167,20 @@ public class AutoWarmupTimer extends AppCompatActivity {
 
         // Upon interacting with UI controls, delay any scheduled hide()
         // operations to prevent the jarring behavior of controls going away
-        // while interacting with the UI.
-        findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+        // while interacting with the UI. (Auto-generated fullscreen activity comment)
 
-        Button button = (Button)findViewById(R.id.dummy_button);
-        button.setText("Start");
-
-        button.setOnTouchListener(new View.OnTouchListener() {
-
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                //mp.start();
-                Button b = (Button) v;
-                if (b.getText().equals("Stop")) {
+        //TODO: Deal with old timer code, consider usage instead of CountDownTimer
+               /* if (b.getText().equals("Stop")) {
                     timerHandler.removeCallbacks(timerRunnable);
                     b.setText("Start");
                 } else {
                     startTime = System.currentTimeMillis();
                     timerHandler.postDelayed(timerRunnable, 0);
                     b.setText("Stop");
-                }
-                return false;
-            }
-        });
+                }*/
+
     }
+
     private void createTimers(){
         countdown = new CountDownTimer(holdTime*1000, 1000) {
 
@@ -220,7 +207,10 @@ public class AutoWarmupTimer extends AppCompatActivity {
         countdownRest = new CountDownTimer(restTime*1000, 1000) {
 
             public void onTick(long millisUntilFinished) {
-                clockText.setText("0:" + millisUntilFinished / 1000);
+                int seconds = (int) (millisUntilFinished / 1000);
+                int minutes = seconds / 60;
+                seconds = seconds % 60;
+                clockText.setText(String.format("%d:%02d", minutes, seconds) + "\nRest before:\n"+ planks[round]);
                 android.util.Log.d("Derek", "restTimer millis:" + millisUntilFinished);
             }
 
@@ -241,14 +231,12 @@ public class AutoWarmupTimer extends AppCompatActivity {
         countdownRest.start();
     }
 
-
-    @Override
+    //TODO: Deal with old timer code, consider usage instead of CountDownTimer
+   /* @Override
     public void onPause() {
         super.onPause();
         timerHandler.removeCallbacks(timerRunnable);
-        Button b = (Button)findViewById(R.id.dummy_button);
-        b.setText("start");
-    }
+    }*/
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
@@ -260,6 +248,7 @@ public class AutoWarmupTimer extends AppCompatActivity {
         delayedHide(100);
     }
 
+    //TODO: Fix crippled fullscreen behavior
     private void toggle() {
         if (mVisible) {
             hide();
@@ -274,7 +263,6 @@ public class AutoWarmupTimer extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.hide();
         }
-        mControlsView.setVisibility(View.GONE);
         mVisible = false;
 
         // Schedule a runnable to remove the status and navigation bar after a delay
