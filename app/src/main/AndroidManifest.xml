@@ -19,7 +19,11 @@
             android:name=".AutoWarmupTimer"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_auto_warmup_timer"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme" />
+        <activity
+            android:name=".MobilityActivity"
+            android:label="@string/title_activity_mobility"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

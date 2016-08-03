@@ -1,6 +1,7 @@
 package com.climbz.strongcode;
 
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.media.MediaPlayer;
 import android.os.CountDownTimer;
 import android.os.Debug;
@@ -12,6 +13,7 @@ import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.w3c.dom.Text;
@@ -96,12 +98,16 @@ public class AutoWarmupTimer extends AppCompatActivity {
     private TextView clockText;
     private CountDownTimer countdown;
     private CountDownTimer countdownRest;
+    private ImageView formImage;
     private int numExercises = 6; //number of exercises (planks for example)
     private int holdTime = 60; //seconds
     private int restTime = 4; //seconds
     private boolean rest = true;
     private int round = 0; //0 of numExercises exercises left to do
     private String[] planks = {"plank","Right side plank","Left side plank","reverse plank","hollow hold","supermeng"};
+    private String[] plankPics = {"plank","sideplank","sideplank2","reverseplank","hollow","supermeng"};
+    private int[] plankPicsIds = new int[plankPics.length];
+
 
     //TODO: Deal with old timer code, consider usage instead of CountDownTimer
     //runs without a timer by reposting this handler at the end of the runnable
@@ -141,6 +147,8 @@ public class AutoWarmupTimer extends AppCompatActivity {
         setContentView(R.layout.activity_auto_warmup_timer);
 
         mVisible = true;
+        setImageIds(this.getApplicationContext());
+        formImage = (ImageView)findViewById(R.id.formImg);
         mContentView = findViewById(R.id.fullscreen_text);
         clockText = (TextView)findViewById(R.id.fullscreen_text);
         clockText.setText("1:00" + "\n" + planks[round]); //TODO: don't hardcode the time
@@ -181,6 +189,12 @@ public class AutoWarmupTimer extends AppCompatActivity {
 
     }
 
+    public void setImageIds(Context context) {
+        for(int i=0; i<plankPics.length;i++){
+            plankPicsIds[i] = context.getResources().getIdentifier(plankPics[i], "drawable", context.getPackageName());
+        }
+    }
+
     private void createTimers(){
         countdown = new CountDownTimer(holdTime*1000, 1000) {
 
@@ -194,10 +208,12 @@ public class AutoWarmupTimer extends AppCompatActivity {
             public void onFinish() {
                 if(round==numExercises-1){
                     android.util.Log.d("Derek", "Countdowns complete");
+                    round=0;
                     playComplete();
                 }else {
                     playAlarm();
                     round++;
+                    formImage.setImageResource(plankPicsIds[round]);
                     android.util.Log.d("Derek", "Countdown: " + round);
                     countdownRest.start();
                 }

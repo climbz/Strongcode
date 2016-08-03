@@ -41,6 +41,9 @@ public class MainActivity extends ActionBarActivity {
                 if (position==1) {
                     Intent i = new Intent(view.getContext(), AutoWarmupTimer.class);
                     view.getContext().startActivity(i);
+                }else if (position==3){
+                    Intent i = new Intent(view.getContext(), MobilityActivity.class);
+                    view.getContext().startActivity(i);
                 }
             }
         });
@@ -55,9 +58,10 @@ public class MainActivity extends ActionBarActivity {
             inflater = LayoutInflater.from(context);
 
             //items.add(new Item("Image 1", R.drawable.chess));
-            items.add(new Item("Bridge", R.drawable.bridge));
+            items.add(new Item("Flexibility", R.drawable.bridge));
             items.add(new Item("Bodyline Routine", R.drawable.nakedplank));
             items.add(new Item("Conditioning", R.drawable.onearmhandstand));
+            items.add(new Item("Mobility", R.drawable.flap));
             items.add(new Item("Handstand", R.drawable.tuckhand));
             items.add(new Item("Planche", R.drawable.planche));
             items.add(new Item("ET", R.drawable.et));
