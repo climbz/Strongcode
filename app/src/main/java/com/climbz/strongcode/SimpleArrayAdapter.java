@@ -9,11 +9,13 @@ package com.climbz.strongcode;
     import android.widget.ImageView;
     import android.widget.TextView;
 
-    public class SimpleArrayAdapter extends ArrayAdapter<String> {
-        private final Context context;
-        private final String[] values;
+    import java.util.ArrayList;
 
-        public SimpleArrayAdapter(Context context, String[] values) {
+public class SimpleArrayAdapter extends ArrayAdapter<String> {
+        private final Context context;
+        private final ArrayList<String> values;
+
+        public SimpleArrayAdapter(Context context, ArrayList<String> values) {
             super(context, -1, values);
             this.context = context;
             this.values = values;
@@ -26,9 +28,9 @@ package com.climbz.strongcode;
             View rowView = inflater.inflate(R.layout.list_item_with_icon, parent, false);
             TextView textView = (TextView) rowView.findViewById(R.id.firstLine);
             ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
-            textView.setText(values[position]);
-            String s = values[position];
-            if (s.startsWith("End")) {
+            textView.setText(values.get(position));
+            String s = values.get(position);
+            if (s.startsWith("Wrist")) {
                 imageView.setImageResource(R.drawable.et);
             }
 

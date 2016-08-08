@@ -152,7 +152,7 @@ public class AutoWarmupTimer extends AppCompatActivity {
         mContentView = findViewById(R.id.fullscreen_text);
         clockText = (TextView)findViewById(R.id.fullscreen_text);
         clockText.setText("1:00" + "\n" + planks[round]); //TODO: don't hardcode the time
-
+        formImage.setImageResource(plankPicsIds[round]);
         createTimers();
 
         // Set up the user interaction to manually show or hide the system UI.

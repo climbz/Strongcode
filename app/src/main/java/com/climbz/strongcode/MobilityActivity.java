@@ -17,12 +17,15 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 public class MobilityActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,19 +46,26 @@ public class MobilityActivity extends AppCompatActivity
 
         //my code below
         final ListView listview = (ListView) findViewById(R.id.listview);
-        //TODO: start storing all this stuff in xml or something rather than hardcoding
-        String[] values = new String[] { "3-plane Neck Movement", "Wrist Circles", "Elbow Circles",
-                "3-plane Neck Movement", "Wrist Circles", "Elbow Circles",
-                "3-plane Neck Movement", "Wrist Circles", "Elbow Circles",
-                "3-plane Neck Movement", "Wrist Circles", "Elbow Circles",
-                "3-plane Neck Movement", "Wrist Circles", "End"};
 
-        final ArrayList<String> list = new ArrayList<String>();
-        for (int i = 0; i < values.length; ++i) {
-            list.add(values[i]);
+        List<Exercise> exercises = null;
+        try {
+            XMLExerciseParserHandler parser = new XMLExerciseParserHandler();
+            exercises = parser.parse(getAssets().open("mobility.xml"));
+            final ArrayList<String> titleList = new ArrayList<String>();
+            for (int i = 0; i < exercises.size(); ++i) {
+                titleList.add(exercises.get(i).getTitle());
+            }
+            final SimpleArrayAdapter adapter = new SimpleArrayAdapter(this,titleList);
+            listview.setAdapter(adapter);
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        final SimpleArrayAdapter adapter = new SimpleArrayAdapter(this,values);
-        listview.setAdapter(adapter);
+
+
+
+
+
+
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
@@ -67,9 +77,9 @@ public class MobilityActivity extends AppCompatActivity
                         .withEndAction(new Runnable() {
                             @Override
                             public void run() {
-                                list.remove(item);
-                                adapter.notifyDataSetChanged();
-                                view.setAlpha(1);
+//                                list.remove(item);
+//                                adapter.notifyDataSetChanged();
+//                                view.setAlpha(1);
                             }
                         });
             }
