@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <exercise>
+        <title>Pullups</title>
+        <description></description>
+        <link></link>
+        <progression>
+            <stage>L-sit</stage>
+            <stage>Half one-arm</stage>
+            <stage>Towel Assist</stage>
+            <stage>One-arm</stage>
+			<stage>Pullover if accessible</stage>
+        </progression>
+    </exercise>
+	<exercise>
+        <title>Dips</title>
+        <description></description>
+        <link></link>
+        <progression>
+            <stage>Parallel bar</stage>
+            <stage>Ring</stage>
+            <stage>L-sit Ring</stage>
+        </progression>
+    </exercise>
+	<exercise>
+        <title>Squats</title>
+        <description></description>
+        <link></link>
+		<progression>
+            <stage>Close-heel</stage>
+            <stage>1/2 One-leg</stage>
+            <stage>Assisted One-leg</stage>
+            <stage>Pistol</stage>
+        </progression>
+    </exercise>
+	<exercise>
+        <title>Pushups</title>
+        <description></description>
+        <link></link>
+        <progression>
+            <stage>Diamond</stage>
+            <stage>Ring</stage>
+            <stage>RTO</stage>
+            <stage>RTO PPPU - progress lean</stage>
+            <stage>One-arm</stage>
+        </progression>
+    </exercise>
+	<exercise>
+        <title>Handstand Pushups</title>
+        <description></description>
+        <link></link>
+        <progression>
+            <stage>Half</stage>
+            <stage>Full negative</stage>
+            <stage>Full</stage>
+            <stage>Deep P-bar</stage>
+            <stage>Close</stage>
+			<stage>Uneven</stage>
+			<stage>Half one-arm</stage>
+        </progression>
+    </exercise>
+	<exercise>
+        <title>Rows</title>
+        <description></description>
+        <link></link>
+        <progression>
+            <stage>Horizontal</stage>
+            <stage>Wide</stage>
+            <stage>Tuck Ice Cream Maker</stage>
+            <stage>Tuck FL rows</stage>
+            <stage>Halftuck FL rows</stage>
+        </progression>
+    </exercise>
+    
+</resources>

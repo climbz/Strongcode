@@ -37,14 +37,23 @@ public class MainActivity extends ActionBarActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Toast.makeText(MainActivity.this, "Position: " + position, Toast.LENGTH_SHORT).show();
 
-                // this 'mActivity' parameter is Activity object, you can send the current activity.
                 if (position==1) {
                     Intent i = new Intent(view.getContext(), AutoWarmupTimer.class);
                     view.getContext().startActivity(i);
                 }else if (position==3){
                     Intent i = new Intent(view.getContext(), MobilityActivity.class);
                     view.getContext().startActivity(i);
+                }else if (position==0){
+                    Intent i = new Intent(view.getContext(), FlexibilityActivity.class);
+                    view.getContext().startActivity(i);
+                }else if (position==2){
+                    Intent i = new Intent(view.getContext(), ConditioningActivity.class);
+                    view.getContext().startActivity(i);
+                }else if (position==5){
+                    Intent i = new Intent(view.getContext(), GymnasticStaticsActivity.class);
+                    view.getContext().startActivity(i);
                 }
+
             }
         });
     }

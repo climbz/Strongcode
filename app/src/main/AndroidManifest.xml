@@ -23,6 +23,18 @@
         <activity
             android:name=".MobilityActivity"
             android:label="@string/title_activity_mobility"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FlexibilityActivity"
+            android:label="@string/title_activity_flexibility"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ConditioningActivity"
+            android:label="@string/title_activity_conditioning"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".GymnasticStaticsActivity"
+            android:label="@string/title_activity_gymnastic_statics"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 

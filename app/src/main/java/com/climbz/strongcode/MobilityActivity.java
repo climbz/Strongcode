@@ -61,12 +61,6 @@ public class MobilityActivity extends AppCompatActivity
             e.printStackTrace();
         }
 
-
-
-
-
-
-
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
