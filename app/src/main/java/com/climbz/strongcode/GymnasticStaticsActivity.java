@@ -23,7 +23,7 @@ public class GymnasticStaticsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        //my code below
+
         final ListView listview = (ListView) findViewById(R.id.listview);
 
         List<Exercise> exercises = null;
