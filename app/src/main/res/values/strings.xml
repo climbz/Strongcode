@@ -11,5 +11,8 @@
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title_activity_flexibility">FlexibilityActivity</string>
+    <string name="title_activity_conditioning">ConditioningActivity</string>
+    <string name="title_activity_gymnastic_statics">GymnasticStaticsActivity</string>
 
 </resources>

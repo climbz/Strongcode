@@ -44,7 +44,6 @@ public class MobilityActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        //my code below
         final ListView listview = (ListView) findViewById(R.id.listview);
 
         List<Exercise> exercises = null;
@@ -60,12 +59,6 @@ public class MobilityActivity extends AppCompatActivity
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
-
-
-
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 

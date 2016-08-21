@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <exercise>
+        <title>Front Lever</title>
+        <description></description>
+        <link></link>
+        <progression>
+            <stage>Tuck</stage>
+            <stage>Half Tuck</stage>
+            <stage>One Leg</stage>
+            <stage>Straddle</stage>
+            <stage>Full</stage>
+        </progression>
+    </exercise>
+    <exercise>
+        <title>Back Lever</title>
+        <description></description>
+        <link></link>
+        <progression>
+            <stage>Tuck</stage>
+            <stage>Half Tuck</stage>
+            <stage>One Leg</stage>
+            <stage>Straddle</stage>
+            <stage>Full</stage>
+        </progression>
+    </exercise>
+    <exercise>
+        <title>Planche</title>
+        <description></description>
+        <link></link>
+        <progression>
+            <stage>Tuck</stage>
+            <stage>Half Tuck</stage>
+            <stage>One Leg</stage>
+            <stage>Straddle</stage>
+            <stage>Full</stage>
+        </progression>
+    </exercise>
+    <exercise>
+        <title>Human Flag</title>
+        <description></description>
+        <link></link>
+        <progression>
+            <stage>Tuck</stage>
+            <stage>Half Tuck</stage>
+            <stage>One Leg</stage>
+            <stage>Straddle</stage>
+            <stage>Full</stage>
+        </progression>
+    </exercise>
+</resources>
