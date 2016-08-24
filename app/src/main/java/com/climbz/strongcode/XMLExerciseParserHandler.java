@@ -56,6 +56,8 @@ public class XMLExerciseParserHandler {
                             exercise.setDescription(text);
                         } else if (tagname.equalsIgnoreCase("link")) {
                             exercise.setLink(text);
+                        }else if (tagname.equalsIgnoreCase("stage")){
+                            exercise.addProgression(text);
                         }
                         break;
 

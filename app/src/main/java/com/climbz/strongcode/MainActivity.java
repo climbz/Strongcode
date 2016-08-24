@@ -28,8 +28,6 @@ public class MainActivity extends ActionBarActivity {
 
         GridView gridview = (GridView) findViewById(R.id.gridview);
 
-//        List<ItemObject> allOldItems = getAllItemObject();
-//        CustomAdapter customAdapter = new CustomAdapter(MainActivity.this, allOldItems);
         gridview.setAdapter(new MyAdapter(this));
 
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -58,7 +56,6 @@ public class MainActivity extends ActionBarActivity {
         });
     }
 
-
     private class MyAdapter extends BaseAdapter {
         private List<Item> items = new ArrayList<Item>();
         private LayoutInflater inflater;
@@ -66,7 +63,6 @@ public class MainActivity extends ActionBarActivity {
         public MyAdapter(Context context) {
             inflater = LayoutInflater.from(context);
 
-            //items.add(new Item("Image 1", R.drawable.chess));
             items.add(new Item("Flexibility", R.drawable.bridge));
             items.add(new Item("Bodyline Routine", R.drawable.nakedplank));
             items.add(new Item("Conditioning", R.drawable.onearmhandstand));

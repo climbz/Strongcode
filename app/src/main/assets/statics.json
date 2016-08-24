@@ -1,0 +1,36 @@
+{"exercises":[
+  {"title":"Front Lever", "description":"", "link":"", "progression":[
+    {"stage":"Tuck"},
+    {"stage":"Half Tuck"},
+    {"stage":"One Straight Leg"},
+    {"stage":"Straddle"},
+    {"stage":"Full"}
+  ]},
+  {"title":"Back Lever", "description":"", "link":"", "progression":[
+    {"stage":"Tuck"},
+    {"stage":"Half Tuck"},
+    {"stage":"One Straight Leg"},
+    {"stage":"Straddle"},
+    {"stage":"Full"}
+  ]},
+  {"title":"Planche", "description":"", "link":"", "progression":[
+    {"stage":"Tuck"},
+    {"stage":"Half Tuck"},
+    {"stage":"One Straight Leg"},
+    {"stage":"Straddle"},
+    {"stage":"Full"}
+  ]},
+  {"title":"Human Flag", "description":"", "link":"", "progression":[
+    {"stage":"Tuck"},
+    {"stage":"Half Tuck"},
+    {"stage":"One Straight Leg"},
+    {"stage":"Straddle"},
+    {"stage":"Full"}
+  ]},
+  {"title":"Handstand", "description":"", "link":"", "progression":[
+    {"stage":"45 degree plank"},
+    {"stage":"Wall"},
+    {"stage":"Freestanding!"},
+    {"stage":"One arm, I suppose"}
+  ]}
+]}
