@@ -7,14 +7,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ExpandableListView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.io.IOException;
+import java.io.InputStream;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class GymnasticStaticsActivity extends AppCompatActivity {
+
+    ExpandableListAdapter listAdapter;
+    ExpandableListView expListView;
+    List<String> listDataHeader;
+    HashMap<String, List<String>> listDataChild;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,30 +38,42 @@ public class GymnasticStaticsActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
-        final ListView listview = (ListView) findViewById(R.id.listview);
-
+        expListView = (ExpandableListView) findViewById(R.id.explistview);
+        listDataHeader = new ArrayList<String>();
+        listDataChild = new HashMap<String, List<String>>();
         List<Exercise> exercises = null;
+
+        Gson gson = new Gson();
+
         try {
-            XMLExerciseParserHandler parser = new XMLExerciseParserHandler();
-            exercises = parser.parse(getAssets().open("statics.xml"));
-            final ArrayList<String> titleList = new ArrayList<String>();
+
+            InputStream is = getAssets().open("statics.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            String jsonOutput = new String(buffer, "UTF-8");
+            Type listType = new TypeToken<List<Exercise>>(){}.getType();
+            exercises = gson.fromJson(jsonOutput, listType);
+
             for (int i = 0; i < exercises.size(); ++i) {
-                titleList.add(exercises.get(i).getTitle());
+                listDataHeader.add(exercises.get(i).getTitle());
+                listDataChild.put(listDataHeader.get(i), exercises.get(i).getProgression());
             }
-            final SimpleArrayAdapter adapter = new SimpleArrayAdapter(this,titleList);
-            listview.setAdapter(adapter);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
+
+        expListView.setAdapter(listAdapter);
+
+        expListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
             @Override
             public void onItemClick(AdapterView<?> parent, final View view,
                                     int position, long id) {
                 final String item = (String) parent.getItemAtPosition(position);
-
 
                 Toast.makeText(GymnasticStaticsActivity.this, item, Toast.LENGTH_SHORT).show();
 

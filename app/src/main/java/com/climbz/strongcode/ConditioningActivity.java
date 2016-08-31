@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ConditioningActivity extends AppCompatActivity {
 
-    //TODO: clean and reorganize expandablelistview related code
+
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
@@ -30,16 +30,14 @@ public class ConditioningActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        // get the listview
         expListView = (ExpandableListView) findViewById(R.id.explistview);
         listDataHeader = new ArrayList<String>();
         listDataChild = new HashMap<String, List<String>>();
-        // preparing list data
 
-        List<Exercise> exercises = null;
+
         try {
             XMLExerciseParserHandler parser = new XMLExerciseParserHandler();
-            exercises = parser.parse(getAssets().open("conditioning.xml"));
+            List<Exercise> exercises = parser.parse(getAssets().open("conditioning.xml"));
             for (int i = 0; i < exercises.size(); ++i) {
                 listDataHeader.add(exercises.get(i).getTitle());
                 listDataChild.put(listDataHeader.get(i), exercises.get(i).getProgression());
@@ -50,35 +48,8 @@ public class ConditioningActivity extends AppCompatActivity {
 
         listAdapter = new ExpandableListAdapter(this, listDataHeader, listDataChild);
 
-        // setting list adapter
         expListView.setAdapter(listAdapter);
 
-
-        /*final ExpandableListView listview = (ExpandableListView) findViewById(R.id.explistview);
-
-        List<Exercise> exercises = null;
-        try {
-            XMLExerciseParserHandler parser = new XMLExerciseParserHandler();
-            exercises = parser.parse(getAssets().open("conditioning.xml"));
-            final ArrayList<String> titleList = new ArrayList<String>();
-            for (int i = 0; i < exercises.size(); ++i) {
-                titleList.add(exercises.get(i).getTitle());
-            }
-            final SimpleArrayAdapter adapter = new SimpleArrayAdapter(this,titleList);
-            listview.setAdapter(adapter);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
-            @Override
-            public void onItemClick(AdapterView<?> parent, final View view,
-                                    int position, long id) {
-                final String item = (String) parent.getItemAtPosition(position);
-
-            }
-
-        });*/
     }
 
 

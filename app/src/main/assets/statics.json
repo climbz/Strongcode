@@ -1,36 +1,36 @@
-{"exercises":[
+[
   {"title":"Front Lever", "description":"", "link":"", "progression":[
-    {"stage":"Tuck"},
-    {"stage":"Half Tuck"},
-    {"stage":"One Straight Leg"},
-    {"stage":"Straddle"},
-    {"stage":"Full"}
+    "Tuck",
+    "Half Tuck",
+    "One Straight Leg",
+    "Straddle",
+    "Full"
   ]},
   {"title":"Back Lever", "description":"", "link":"", "progression":[
-    {"stage":"Tuck"},
-    {"stage":"Half Tuck"},
-    {"stage":"One Straight Leg"},
-    {"stage":"Straddle"},
-    {"stage":"Full"}
+    "Tuck",
+    "Half Tuck",
+    "One Straight Leg",
+    "Straddle",
+    "Full"
   ]},
   {"title":"Planche", "description":"", "link":"", "progression":[
-    {"stage":"Tuck"},
-    {"stage":"Half Tuck"},
-    {"stage":"One Straight Leg"},
-    {"stage":"Straddle"},
-    {"stage":"Full"}
+    "Tuck",
+    "Half Tuck",
+    "One Straight Leg",
+    "Straddle",
+    "Full"
   ]},
   {"title":"Human Flag", "description":"", "link":"", "progression":[
-    {"stage":"Tuck"},
-    {"stage":"Half Tuck"},
-    {"stage":"One Straight Leg"},
-    {"stage":"Straddle"},
-    {"stage":"Full"}
+    "Tuck",
+    "Half Tuck",
+    "One Straight Leg",
+    "Straddle",
+    "Full"
   ]},
   {"title":"Handstand", "description":"", "link":"", "progression":[
-    {"stage":"45 degree plank"},
-    {"stage":"Wall"},
-    {"stage":"Freestanding!"},
-    {"stage":"One arm, I suppose"}
+    "45 degree plank",
+    "Wall",
+    "Freestanding!",
+    "One arm, I suppose"
   ]}
-]}
+]
